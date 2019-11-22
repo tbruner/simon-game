@@ -21,16 +21,24 @@ const onButton = document.querySelector("#on");
 const startButton = document.querySelector("#start");
 //changes whether playing in strict mode or not
 strictButton.addEventListener("click",(event) => {
-  if(strictButton.checked == true) {
+  if(strict == false) {
     strict = true;
+    strictButton.style.backgroundColor = "#fff";
+    strictButton.style.color = "#000";
   }
-  else strict = false;
+  else {
+    strict = false;
+    strictButton.style.backgroundColor = "#888";
+    strictButton.style.color = "white";
+  }
 });
 //turns on the game
 onButton.addEventListener("click",(event) => {
-  if(onButton.checked == true) {
+  if(on == false) {
     on = true;
     turnCounter.innerHTML = "-"; //.innerHTML adds dash in turn counter
+    onButton.style.backgroundColor = "white";
+    onButton.style.color = "black";
   }
   else {
     on = false;
@@ -38,6 +46,8 @@ onButton.addEventListener("click",(event) => {
     turnCounter.innerHTML = "";
     clearColor();
     clearInterval();
+    onButton.style.backgroundColor = "#888";
+    onButton.style.color = "white";
   }
 });
 //starts the game
@@ -94,7 +104,8 @@ function red() {
     let audio = document.querySelector("#clip1");
     audio.play();
   }
-  redButton.style.backgroundColor = "#ea1616";
+  redButton.style.borderColor = "#ea1616";
+  redButton.style.boxShadow = "0 0 15px #ea1616";
 }
 
 function yellow() {
@@ -102,7 +113,8 @@ function yellow() {
     let audio = document.querySelector("#clip2");
     audio.play();
   }
-  yellowButton.style.backgroundColor = "#ff1";
+  yellowButton.style.borderColor = "#ff1";
+  yellowButton.style.boxShadow = "0 0 15px #ff1";
 }
 
 function blue() {
@@ -110,7 +122,8 @@ function blue() {
     let audio = document.querySelector("#clip3");
     audio.play();
   }
-  blueButton.style.backgroundColor = "#1191ee";
+  blueButton.style.borderColor = "#1191ee";
+  blueButton.style.boxShadow = "0 0 15px #1191ee";
 }
 
 function green() {
@@ -118,21 +131,30 @@ function green() {
     let audio = document.querySelector("#clip4");
     audio.play();
   }
-  greenButton.style.backgroundColor = "#1d1";
+  greenButton.style.borderColor = "#1d1";
+  greenButton.style.boxShadow = "0 0 15px #1d1";
 }
 
 function clearColor() {
-  greenButton.style.backgroundColor = "#0c0";
-  blueButton.style.backgroundColor = "#0080dd";
-  yellowButton.style.backgroundColor = "#ee0";
-  redButton.style.backgroundColor = "#d90505";
+  greenButton.style.borderColor = "#0c0";
+  greenButton.style.boxShadow = "";
+  blueButton.style.borderColor = "#0080dd";
+  blueButton.style.boxShadow = "";
+  yellowButton.style.borderColor = "#ee0";
+  yellowButton.style.boxShadow = "";
+  redButton.style.borderColor = "#d90505";
+  redButton.style.boxShadow = "";
 }
 
 function flashColor() {
-  greenButton.style.backgroundColor = "#1d1";
-  blueButton.style.backgroundColor = "#1191ee";
-  yellowButton.style.backgroundColor = "#ff1";
-  redButton.style.backgroundColor = "#ea1616";
+  greenButton.style.borderColor = "#1d1";
+  greenButton.style.boxShadow = "0 0 15px #1d1";
+  blueButton.style.borderColor = "#1191ee";
+  blueButton.style.boxShadow = "0 0 15px #1191ee";
+  yellowButton.style.borderColor = "#ff1";
+  yellowButton.style.boxShadow = "0 0 15px #ff1";
+  redButton.style.borderColor = "#ea1616";
+  redButton.style.boxShadow = "0 0 15px #ea1616";
 }
 
 redButton.addEventListener("click",(event) => {
@@ -201,7 +223,7 @@ function check() {
         good = true;
         intervalID = setInterval(gameTurn, 800);
       }
-    },800);
+    },1000);
   }
   else if(turn == playerOrder.length && !win) {
     turn++;

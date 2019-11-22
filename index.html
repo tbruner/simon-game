@@ -6,55 +6,69 @@
     <style>
       html {
         font-family: sans-serif;
+        background-color: #333;
+        color: white;
       }
       .button {
+        display: inline;
+        margin: 6px;
+        color: white;
         border: 0;
+        background-color: #888;
       }
       .text1 {
-
+        position: absolute;
+        left: 95px;
+        font-size: 30px;
       }
       .text2 {
-
+        position: absolute;
+        top: 420px;
+        left: 110px;
+      }
+      .colors {
+        position: absolute;
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        margin: 20px;
+        border-style: solid;
+        border-width: 8px;
       }
       #board {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
+
       }
       #red {
-        height: 100px;
-        width: 100px;
-        border-radius: 50%;
-        margin: 20px;
-        background-color: #d90505;
+        top: 50px;
+        left: 85px;
+        border-color: #d90505;
       }
       #yellow {
-        height: 100px;
-        width: 100px;
-        border-radius: 50%;
-        margin: 20px;
-        background-color: #ee0;
+        top: 200px;
+        left: 85px;
+        border-color: #ee0;
       }
       #blue {
-        height: 100px;
-        width: 100px;
-        border-radius: 50%;
-        margin: 20px;
-        background-color: #0080dd;
+        top: 125px;
+        left: 10px;
+        border-color: #0080dd;
       }
       #green {
-        height: 100px;
-        width: 100px;
-        border-radius: 50%;
-        margin: 20px;
-        background-color: #0c0;
+        top: 125px;
+        left: 160px;
+        border-color: #0c0;
       }
       #switches {
+        position: absolute;
+        top: 350px;
+        left: 20px;
       }
       #turn {
+        position: absolute;
+        top: 385px;
+        left: 115px;
         background: #330000;
         color: red;
-        font-family: courier;
         font-size: 20px;
         height: 30px;
         width: 50px;
@@ -78,22 +92,18 @@
   </head>
   <body>
     <div id="board">
-      <div class="text1">Simon</div>
-      <div id="red"></div>
-      <div id="blue"></div>
-      <div id="yellow"></div>
-      <div id="green"></div>
+      <div class="text1">SIMON</div>
+      <div class="colors" id="red"></div>
+      <div class="colors" id="blue"></div>
+      <div class="colors" id="yellow"></div>
+      <div class="colors" id="green"></div>
       <div id="switches">
-        <span>power</span>
-        <input type="checkbox" class="toggle" id="on">
-        <span>strict</span>
-        <input type="checkbox" class="toggle" id="strict">
-        <button class="button" id="start">Start</button>
+        <button class="button" id="on">POWER</button>
+        <button class="button" id="strict">STRICT</button>
+        <button class="button" id="start">START</button>
       </div>
       <div id="turn"></div>
-      <div class="text2">
-        count
-      </div>
+      <div class="text2">COUNT</div>
     </div>
   </body>
 </html>
