@@ -3,70 +3,74 @@
   <head>
     <meta charset="utf-8">
     <title>Simon Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
     <style>
       html {
-        font-family: sans-serif;
+        font-family: 'Orbitron', sans-serif;
         background-color: #333;
         color: white;
       }
       .button {
         display: inline;
+        font-family: 'Orbitron', sans-serif;
         margin: 6px;
         color: white;
         border: 0;
         background-color: #888;
       }
       .text1 {
-        position: absolute;
-        left: 95px;
+        text-align: center;
         font-size: 30px;
       }
       .text2 {
         position: absolute;
-        top: 420px;
-        left: 110px;
+        top: 50%;
+        left: 50%;
+        margin: 20px 0 0 -28px;
       }
       .colors {
         position: absolute;
-        height: 60px;
-        width: 60px;
+        height: 110px;
+        width: 110px;
         border-radius: 50%;
-        margin: 20px;
         border-style: solid;
         border-width: 8px;
       }
-      #board {
-
-      }
       #red {
-        top: 50px;
-        left: 85px;
+        top: 50%;
+        left: 50%;
+        margin: -255px 0 0 -55px;
         border-color: #d90505;
       }
       #yellow {
-        top: 200px;
-        left: 85px;
+        top: 50%;
+        left: 50%;
+        margin:145px 0 0 -55px;
         border-color: #ee0;
       }
       #blue {
-        top: 125px;
-        left: 10px;
+        top: 50%;
+        left: 50%;
+        margin:-55px 0 0 -255px;
         border-color: #0080dd;
       }
       #green {
-        top: 125px;
-        left: 160px;
+        top: 50%;
+        left: 50%;
+        margin:-55px 0 0 145px;
         border-color: #0c0;
       }
       #switches {
         position: absolute;
-        top: 350px;
-        left: 20px;
+        top: 50%;
+        left: 50%;
+        margin:40px 0 0 -134px;
       }
       #turn {
         position: absolute;
-        top: 385px;
-        left: 115px;
+        top: 50%;
+        left: 50%;
+        margin:-15px 0 0 -25px;
         background: #330000;
         color: red;
         font-size: 20px;
