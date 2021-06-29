@@ -3,81 +3,46 @@
   <head>
     <meta charset="utf-8">
     <title>Simon Game</title>
-    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Russo One google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet"> 
     <style>
-      html {
-        font-family: 'Orbitron', sans-serif;
-        background-color: #333;
-        color: white;
-      }
-      .button {
-        display: inline;
-        font-family: 'Orbitron', sans-serif;
-        margin: 6px;
-        color: white;
-        border: 0;
-        background-color: #888;
-      }
-      .text1 {
-        text-align: center;
-        font-size: 30px;
-      }
-      .text2 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin: 20px 0 0 -28px;
+      h1 {
+        font-family: 'Russo One';
       }
       .colors {
-        position: absolute;
         height: 110px;
         width: 110px;
         border-radius: 50%;
         border-style: solid;
-        border-width: 8px;
+        border-width: 10px;
+      }
+      .colorHover:hover {
+        opacity: .8;
+        cursor: pointer;
       }
       #red {
-        top: 50%;
-        left: 50%;
-        margin: -255px 0 0 -55px;
         border-color: #d90505;
       }
       #yellow {
-        top: 50%;
-        left: 50%;
-        margin:145px 0 0 -55px;
         border-color: #ee0;
       }
       #blue {
-        top: 50%;
-        left: 50%;
-        margin:-55px 0 0 -255px;
         border-color: #0080dd;
       }
       #green {
-        top: 50%;
-        left: 50%;
-        margin:-55px 0 0 145px;
         border-color: #0c0;
       }
-      #switches {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin:40px 0 0 -134px;
-      }
       #turn {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin:-15px 0 0 -25px;
         background: #330000;
         color: red;
         font-size: 20px;
         height: 30px;
         width: 50px;
-        line-height: 30px;
-        text-align: center;
+        margin: auto;
       }
     </style>
     <audio id="clip1">
@@ -92,22 +57,37 @@
     <audio id="clip4">
       <source src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"><source>
     </audio>
-    <script src="script.js" defer></script>
+    <script src="script.js" defer></script> 
   </head>
-  <body>
-    <div id="board">
-      <div class="text1">SIMON</div>
-      <div class="colors" id="red"></div>
-      <div class="colors" id="blue"></div>
-      <div class="colors" id="yellow"></div>
-      <div class="colors" id="green"></div>
-      <div id="switches">
-        <button class="button" id="on">POWER</button>
-        <button class="button" id="strict">STRICT</button>
-        <button class="button" id="start">START</button>
+  <body class="bg-dark">
+    <div class="text-white container-fluid m-0">
+      <h1 class="text-center py-5 display-4">SIMON</h1>
+
+      <div class="row justify-content-center py-2">
+        <div class="colors col-12" id="red"></div>
       </div>
-      <div id="turn"></div>
-      <div class="text2">COUNT</div>
+
+      <div class="row justify-content-center py-5">
+        <div class="col-2 colors text-end" id="blue"></div>
+        <div class="col-2 text-center align-middle">
+          <div class="mx-auto my-2" id="turn"></div>
+          <div class="text2 mx-auto my-2">COUNT</div>
+        </div>
+        <div class="col-2 colors text-start" id="yellow"></div>
+      </div>
+
+      <div class="row justify-content-center py-2">
+        <div class="colors col-12" id="green"></div>
+      </div>
+      <div class="row justify-content-center text-center pt-5">
+        <button type="button" class="col-3 col-lg-1 btn btn-secondary text-white m-2" data-toggle="button" aria-pressed="false" id="on">POWER</button>
+        <button type="button" class="col-3 col-lg-1 btn btn-secondary text-white m-2" data-toggle="button" aria-pressed="false" id="strict">STRICT</button>
+        <button type="button" class="col-3 col-lg-1 btn btn-secondary text-white m-2" id="start">START</button>
+      </div>
     </div>
+      <!-- jQuery first, then code to hide navbar on scroll, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
