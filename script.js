@@ -19,17 +19,14 @@ const redButton = document.querySelector("#red");
 const strictButton = document.querySelector("#strict");
 const onButton = document.querySelector("#on");
 const startButton = document.querySelector("#start");
+const colors = document.querySelectorAll(".colors");
 //changes whether playing in strict mode or not
 strictButton.addEventListener("click",(event) => {
   if(strict == false) {
     strict = true;
-    strictButton.style.backgroundColor = "#fff";
-    strictButton.style.color = "#000";
   }
   else {
     strict = false;
-    strictButton.style.backgroundColor = "#888";
-    strictButton.style.color = "white";
   }
 });
 //turns on the game
@@ -37,8 +34,9 @@ onButton.addEventListener("click",(event) => {
   if(on == false) {
     on = true;
     turnCounter.innerHTML = "-"; //.innerHTML adds dash in turn counter
-    onButton.style.backgroundColor = "white";
-    onButton.style.color = "black";
+    for(let i = 0; i< colors.length; i++){
+      colors[i].classList.toggle("colorHover");
+    }
   }
   else {
     on = false;
@@ -46,8 +44,9 @@ onButton.addEventListener("click",(event) => {
     turnCounter.innerHTML = "";
     clearColor();
     clearInterval();
-    onButton.style.backgroundColor = "#888";
-    onButton.style.color = "white";
+    for(let i = 0; i< colors.length; i++){
+      colors[i].classList.toggle("colorHover");
+    }
   }
 });
 //starts the game
@@ -105,7 +104,7 @@ function red() {
     audio.play();
   }
   redButton.style.borderColor = "#ea1616";
-  redButton.style.boxShadow = "0 0 15px #ea1616";
+  redButton.style.boxShadow = "0 0 20px #ea1616";
 }
 
 function yellow() {
@@ -114,7 +113,7 @@ function yellow() {
     audio.play();
   }
   yellowButton.style.borderColor = "#ff1";
-  yellowButton.style.boxShadow = "0 0 15px #ff1";
+  yellowButton.style.boxShadow = "0 0 20px #ff1";
 }
 
 function blue() {
@@ -123,7 +122,7 @@ function blue() {
     audio.play();
   }
   blueButton.style.borderColor = "#1191ee";
-  blueButton.style.boxShadow = "0 0 15px #1191ee";
+  blueButton.style.boxShadow = "0 0 20px #1191ee";
 }
 
 function green() {
@@ -132,7 +131,7 @@ function green() {
     audio.play();
   }
   greenButton.style.borderColor = "#1d1";
-  greenButton.style.boxShadow = "0 0 15px #1d1";
+  greenButton.style.boxShadow = "0 0 20px #1d1";
 }
 
 function clearColor() {
@@ -148,13 +147,13 @@ function clearColor() {
 
 function flashColor() {
   greenButton.style.borderColor = "#1d1";
-  greenButton.style.boxShadow = "0 0 15px #1d1";
+  greenButton.style.boxShadow = "0 0 20px #1d1";
   blueButton.style.borderColor = "#1191ee";
-  blueButton.style.boxShadow = "0 0 15px #1191ee";
+  blueButton.style.boxShadow = "0 0 20px #1191ee";
   yellowButton.style.borderColor = "#ff1";
-  yellowButton.style.boxShadow = "0 0 15px #ff1";
+  yellowButton.style.boxShadow = "0 0 20px #ff1";
   redButton.style.borderColor = "#ea1616";
-  redButton.style.boxShadow = "0 0 15px #ea1616";
+  redButton.style.boxShadow = "0 0 20px #ea1616";
 }
 
 redButton.addEventListener("click",(event) => {
@@ -222,6 +221,7 @@ function check() {
         playerOrder = [];
         good = true;
         intervalID = setInterval(gameTurn, 800);
+        turnCounter.innerHTML = turn;
       }
     },1000);
   }
